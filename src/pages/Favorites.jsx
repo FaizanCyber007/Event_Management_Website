@@ -16,9 +16,7 @@ const Favorites = () => {
 
   useEffect(() => {
     // Get favorites from localStorage
-    const favorites = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
-    );
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setFavoriteEvents(favorites);
   }, []);
 
@@ -29,14 +27,14 @@ const Favorites = () => {
     setFavoriteEvents(updatedFavorites);
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     // Dispatch event to update navbar counter
-    window.dispatchEvent(new CustomEvent('favoritesUpdated'));
+    window.dispatchEvent(new CustomEvent("favoritesUpdated"));
   };
 
   const clearAllFavorites = () => {
     setFavoriteEvents([]);
     localStorage.removeItem("favorites");
     // Dispatch event to update navbar counter
-    window.dispatchEvent(new CustomEvent('favoritesUpdated'));
+    window.dispatchEvent(new CustomEvent("favoritesUpdated"));
   };
 
   if (favoriteEvents.length === 0) {

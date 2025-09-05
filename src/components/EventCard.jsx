@@ -18,9 +18,7 @@ const EventCard = ({ event }) => {
 
   useEffect(() => {
     // Check if event is in favorites
-    const favorites = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
-    );
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setIsFavorite(favorites.some((fav) => fav.id === event.id));
 
     // Check if event is in cart
@@ -28,10 +26,8 @@ const EventCard = ({ event }) => {
     setIsInCart(cartItems.some((item) => item.id === event.id));
   }, [event.id]);
 
-    const toggleFavorite = () => {
-    const favorites = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
-    );
+  const toggleFavorite = () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
     if (isFavorite) {
       const updatedFavorites = favorites.filter((fav) => fav.id !== event.id);
@@ -44,7 +40,7 @@ const EventCard = ({ event }) => {
     }
 
     // Dispatch custom event to update navbar counters
-    window.dispatchEvent(new CustomEvent('favoritesUpdated'));
+    window.dispatchEvent(new CustomEvent("favoritesUpdated"));
   };
 
   const addToCart = () => {
@@ -59,10 +55,11 @@ const EventCard = ({ event }) => {
     setIsInCart(true);
 
     // Dispatch custom event to update navbar counters
-    window.dispatchEvent(new CustomEvent('cartUpdated'));
+    window.dispatchEvent(new CustomEvent("cartUpdated"));
 
     alert("Event added to cart!");
-  };  const formatDate = (dateString) => {
+  };
+  const formatDate = (dateString) => {
     const options = {
       weekday: "short",
       year: "numeric",

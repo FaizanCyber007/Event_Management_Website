@@ -63,12 +63,12 @@ const Navbar = () => {
       setFavCount(favorites.length);
     };
 
-    window.addEventListener('cartUpdated', handleCartUpdate);
-    window.addEventListener('favoritesUpdated', handleFavoritesUpdate);
+    window.addEventListener("cartUpdated", handleCartUpdate);
+    window.addEventListener("favoritesUpdated", handleFavoritesUpdate);
 
     return () => {
-      window.removeEventListener('cartUpdated', handleCartUpdate);
-      window.removeEventListener('favoritesUpdated', handleFavoritesUpdate);
+      window.removeEventListener("cartUpdated", handleCartUpdate);
+      window.removeEventListener("favoritesUpdated", handleFavoritesUpdate);
     };
   }, []);
 

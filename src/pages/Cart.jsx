@@ -27,7 +27,7 @@ const Cart = () => {
     setCartItems(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     // Dispatch event to update navbar counter
-    window.dispatchEvent(new CustomEvent('cartUpdated'));
+    window.dispatchEvent(new CustomEvent("cartUpdated"));
   };
 
   const removeFromCart = (eventId) => {
@@ -50,7 +50,7 @@ const Cart = () => {
     setCartItems([]);
     localStorage.removeItem("cart");
     // Dispatch event to update navbar counter
-    window.dispatchEvent(new CustomEvent('cartUpdated'));
+    window.dispatchEvent(new CustomEvent("cartUpdated"));
   };
 
   const getTotalPrice = () => {
